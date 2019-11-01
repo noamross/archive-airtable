@@ -1,0 +1,22 @@
+Package: malaysia-db-process
+Version: 0.0.0.9000
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+URL: https://github.com/ecohealthalliance/malaysia-db-process
+Depends:
+    airtabler,
+    readr,
+    dplyr,
+    purrr,
+    jsonlite,
+    processx,
+    withr,
+    R.utils,
+    webdriver,
+    jsonlite,
+    rdrop2,
+    base64enc
+Remotes:
+    bergant/airtabler

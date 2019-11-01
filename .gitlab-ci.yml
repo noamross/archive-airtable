@@ -1,0 +1,29 @@
+image: rocker/verse:latest
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+  - apt-get update && apt-get install -y --no-install-recommends --no-upgrade libssl-dev rsync
+  - mkdir -p $CI_PROJECT_DIR/.cache; rsync -r --ignore-existing /usr/local/lib/R/site-library/ $CI_PROJECT_DIR/.cache/; rm -rf /usr/local/lib/R/site-library; ln -sf $CI_PROJECT_DIR/.cache /usr/local/lib/R/site-library
+  - Rscript -e "devtools::install_deps(dependencies=TRUE)"
+
+
+cache:
+  key: common-cache
+  paths:
+    - .cache/
+
+nightly:
+  only:
+    - schedules
+  artifacts:
+    name: "$CI_COMMIT_REF_SLUG"
+    paths:
+    - data/
+  script:
+    - ./download-archive-tables.R
+
