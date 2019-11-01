@@ -8,7 +8,7 @@ library(webdriver)
 library(jsonlite)
 devtools::load_all()
 
-webdriver::install_phantomjs()
+if (inherits(try(run_phantomjs()), "try-error")) webdriver::install_phantomjs()
 
 DATA_PATH = "data" # Where locally to store data
 DATA_REPO_URL = Sys.getenv("REPO_URL") # storage repo
