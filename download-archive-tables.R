@@ -15,7 +15,6 @@ DATA_REPO_URL = Sys.getenv("REPO_URL") # storage repo
 AT_BASE = Sys.getenv("AT_BASE") # The base we are working off of
 AIRTABLE_LOGIN_EMAIL = Sys.getenv("AIRTABLE_LOGIN_EMAIL") #airtable creds.  Note that AIRTABLE_API_KEY is also needed in the environment
 AIRTABLE_LOGIN_PWD = Sys.getenv("AIRTABLE_LOGIN_PWD")
-HUMAN_BASE = Sys.getenv("HUMAN_BASE") # The base we are working off of
 GIT_USER = Sys.getenv("GIT_USER")
 GIT_EMAIL = Sys.getenv("GIT_EMAIL")
 
