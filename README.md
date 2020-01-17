@@ -2,7 +2,7 @@
 
 Workflow to archive an AirTable base as CSVs in a git repository, as well as 
 downloading any files attached to tables. Uses `phantomjs` to
-collecti informaation about the base schema in order to download all tables.
+collect information about the base schema in order to download all tables.
 
 The following environement variables are needed:
 
