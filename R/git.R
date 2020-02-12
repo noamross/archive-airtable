@@ -1,4 +1,4 @@
-## Functions modifieed from pkgdown for deployment
+## Functions modified from pkgdown for deployment
 
 git <- function(...) {
   processx::run("git", c(...), echo_cmd = TRUE, echo = TRUE)
